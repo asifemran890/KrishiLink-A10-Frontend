@@ -1,42 +1,48 @@
-import { use } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../../context/AuthContext";
+// import { use } from "react";
+import { Link, Navigate, useLocation } from "react-router";
+// import { AuthContext } from "../../context/AuthContext";
 import { FaGoogle } from "react-icons/fa";
+import { useState } from "react";
+import { IoEyeOff } from "react-icons/io5";
+import { FaEye } from "react-icons/fa6";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle } = use(AuthContext);
+  const [show, setShow] = useState(false);
+  // const { signInUser, signInWithGoogle } = use(AuthContext);
 
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log(location);
 
   const handleLogIn = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-
-    console.log(email, password);
-    signInUser(email, password)
+    console.log("login ", { email, password });
+    signInWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result.user);
-        event.target.reset();
-        navigate(location.state || "/");
+        // updateUserProfile(displayName, photoURL);
+        toast.success("Login successfully!");
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.message);
       });
   };
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then((result) => {
-        console.log(result.user);
-        navigate(location?.state || "/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleGoogleSignIn = () => {
+  //   signInWithGoogle()
+  //     .then((result) => {
+  //       console.log(result.user);
+  //       navigate(location?.state || "/");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <div className="card bg-base-100  w-full mx-auto max-w-sm shrink-0 shadow-2xl border border-gray-200">
@@ -44,7 +50,6 @@ const Login = () => {
         <h1 className="text-3xl font-bold text-center">Login</h1>
         <form onSubmit={handleLogIn}>
           <fieldset className="fieldset">
-   
             <label className="label">Email</label>
             <input
               type="email"
@@ -52,14 +57,21 @@ const Login = () => {
               className="input rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Email"
             />
-
-            <label className="label">Password</label>
-            <input
-              type="password"
-              name="password"
-               className="input rounded-full focus:border-0 focus:outline-gray-200"
-              placeholder="Password"
-            />
+            <div className="relative">
+              <label className="label">Password</label>
+              <input
+                type={show ? "test" : "password"}
+                name="password"
+                className="input rounded-full focus:border-0 focus:outline-gray-200"
+                placeholder="Password"
+              />
+              <span
+                onClick={() => setShow(!show)}
+                className="absolute right-[30px] top-[30px] cursor-pointer z-50"
+              >
+                {show ? <FaEye /> : <IoEyeOff />}
+              </span>
+            </div>
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
@@ -70,18 +82,16 @@ const Login = () => {
         </form>
 
         <button
-          onClick={handleGoogleSignIn}
+          // onClick={handleGoogleSignIn}
           className="btn bg-white rounded-full text-black border-[#e5e5e5]"
         >
           <FaGoogle />
           Login with Google
         </button>
         <p className="text-center">
-          New to our website? Please  <Link
-            className="text-blue-500 hover:text-blue-800"
-            to="/auth/register"
-          >
-             Register
+          New to our website? Please{" "}
+          <Link className="text-blue-500 hover:text-blue-800" to="/register">
+            Register
           </Link>
         </p>
       </div>

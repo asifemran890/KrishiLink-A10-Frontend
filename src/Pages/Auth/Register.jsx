@@ -2,31 +2,50 @@
 import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { FaGoogle } from "react-icons/fa6";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebase.config";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { FaEye } from "react-icons/fa6";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
+  const [show, setShow] = useState(false);
   // const { createUser, updateUserProfile, signInWithGoogle } = use(AuthContext);
   // const navigate = useNavigate();
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const displayName = event.target.displayName.value;
+    const email = event.target.email.value;
+    const photoURL = event.target.photoURL.value;
+    const password = event.target.password.value;
+    console.log("register asif", { displayName, email, photoURL, password });
 
-  // const handleRegister = (event) => {
-  //   event.preventDefault();
-  //   const displayName = event.target.displayName.value;
-  //   const photoURL = event.target.photoURL.value;
-  //   const email = event.target.email.value;
-  //   const password = event.target.password.value;
+    // password validation
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter.");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter.");
+      return;
+    }
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long.");
+      return;
+    }
 
-  //   toast.loading("Creating user...", { id: "create-user" });
-
-  //   createUser(email, password)
-  //     .then((result) => {
-  //       console.log(result.user);
-  //       updateUserProfile(displayName, photoURL);
-  //       toast.success("User created successfully!", { id: "create-user" });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       toast.error(error.message, { id: "create-user" });
-  //     });
-  // };
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        console.log(result.user);
+        // updateUserProfile(displayName, photoURL);
+        toast.success("User register successfully!");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
 
   // const handleGoogleSignIn = () => {
   //   toast.loading("Creating user...", { id: "create-user" });
@@ -45,9 +64,9 @@ const Register = () => {
   return (
     <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-        <h1 className="text-3xl font-bold text-center">Register</h1>
-        <form>
-          <fieldset className="fieldset">
+        <h1 className="text-3xl font-bold text-center">Create Your Account</h1>
+        <form onSubmit={handleRegister}>
+          <fieldset className="fieldset ">
             {/* email field */}
             <label className="label">Name</label>
             <input
@@ -55,14 +74,6 @@ const Register = () => {
               name="displayName"
               className="input rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Name"
-            />
-
-            <label className="label">PhotoURL</label>
-            <input
-              type="text"
-              name="photoURL"
-              className="input rounded-full focus:border-0 focus:outline-gray-200"
-              placeholder="Photo URL"
             />
             {/* email field */}
             <label className="label">Email</label>
@@ -72,14 +83,30 @@ const Register = () => {
               className="input rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Email"
             />
-            {/* password field */}
-            <label className="label">Password</label>
+            <label className="label">PhotoURL</label>
             <input
-              type="password"
-              name="password"
+              type="text"
+              name="photoURL"
               className="input rounded-full focus:border-0 focus:outline-gray-200"
-              placeholder="Password"
+              placeholder="Photo URL"
             />
+
+            {/* password field */}
+            <div className="relative">
+              <label className="label">Password</label>
+              <input
+                type={show ? "test" : "password"}
+                name="password"
+                className="input rounded-full focus:border-0 focus:outline-gray-200"
+                placeholder="Password"
+              />
+              <span
+                onClick={() => setShow(!show)}
+                className="absolute right-[30px] top-[30px] cursor-pointer z-50"
+              >
+                {show ? <FaEye /> : <IoEyeOff />}
+              </span>
+            </div>
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
@@ -98,7 +125,7 @@ const Register = () => {
         </button>
         <p className="text-center">
           Already have an account? Please{" "}
-          <Link className="text-blue-500 hover:text-blue-800" to="/auth/login">
+          <Link className="text-blue-500 hover:text-blue-800" to="/login">
             Login
           </Link>{" "}
         </p>
