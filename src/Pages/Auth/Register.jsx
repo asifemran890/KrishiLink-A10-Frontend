@@ -1,13 +1,18 @@
-// import React, { use } from "react";
+
 import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { FaGoogle } from "react-icons/fa6";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa6";
 import { IoEyeOff } from "react-icons/io5";
+const googleprovider = new GoogleAuthProvider();
 
 const Register = () => {
   const [show, setShow] = useState(false);
@@ -47,19 +52,17 @@ const Register = () => {
       });
   };
 
-  // const handleGoogleSignIn = () => {
-  //   toast.loading("Creating user...", { id: "create-user" });
-  //   signInWithGoogle()
-  //     .then((result) => {
-  //       toast.success("User created successfully!", { id: "create-user" });
-  //       console.log(result.user);
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       toast.error(error.message, { id: "create-user" });
-  //     });
-  // };
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleprovider)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Login successfully!");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
 
   return (
     <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
@@ -117,7 +120,7 @@ const Register = () => {
         </form>
 
         <button
-          // onClick={handleGoogleSignIn}
+          onClick={handleGoogleSignIn}
           className="btn bg-white rounded-full text-black border-[#e5e5e5]"
         >
           <FaGoogle />

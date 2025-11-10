@@ -1,7 +1,7 @@
 // src/components/Layout.js
 import { Link, Outlet, useLocation } from "react-router";
 
-const Layout = ({ user, onLogout }) => {
+const MainLayout = ({ user, onLogout }) => {
   const location = useLocation();
 
   // Don't show header/footer if on 404 page
@@ -83,4 +83,4 @@ const Layout = ({ user, onLogout }) => {
   );
 };
 
-export default Layout;
+export default MainLayout;
