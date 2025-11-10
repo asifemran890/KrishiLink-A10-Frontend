@@ -15,66 +15,15 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        // loader: () => fetch("http://localhost:3000/model"),
       },
-      // {
-      //   path: "/all-models",
-      //   element: <AllModels />,
-      //   loader: () => fetch("http://localhost:3000/model"),
-      // },
       {
         path: "/profile",
         element: (
-          // <PrivateRoute>
-          <Profile />
-          //</PrivateRoute>
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
         ),
       },
-      // {
-      //   path: "/add-model",
-      //   element: (
-      //     <PrivateRoute>
-      //       <AddModel />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/model-details/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <ModelDetails />
-      //     </PrivateRoute>
-      //   ),
-      // },
-
-      // {
-      //   path: "/my-models",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyModels />
-      //     </PrivateRoute>
-      //   ),
-      // },
-
-      // {
-      //   path: "/my-downloads",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyDownloads />
-      //     </PrivateRoute>
-      //   ),
-      // },
-
-      // {
-      //   path: "/update-model/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <UpdateModel />
-      //     </PrivateRoute>
-      //   ),
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:3000/model/${params.id}`),
-      // },
       {
         path: "/login",
         element: <Login />,
