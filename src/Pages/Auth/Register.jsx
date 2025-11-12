@@ -1,4 +1,3 @@
-
 import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { FaGoogle } from "react-icons/fa6";
@@ -113,19 +112,19 @@ const Register = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600">
+            <Link className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600">
               Register
-            </button>
+            </Link>
           </fieldset>
         </form>
 
-        <button
+        <Link
           onClick={handleGoogleSignIn}
           className="btn bg-white rounded-full text-black border-[#e5e5e5]"
         >
           <FaGoogle />
           Login with Google
-        </button>
+        </Link>
         <p className="text-center">
           Already have an account? Please{" "}
           <Link className="text-blue-500 hover:text-blue-800" to="/login">

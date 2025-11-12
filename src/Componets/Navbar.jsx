@@ -114,7 +114,7 @@ const Navbar = () => {
 
             <Link
               className="hover:underline"
-              to="/crops"
+              to="/AllCrops"
               onClick={() => setMenuOpen(false)}
             >
               All Crops
@@ -132,7 +132,7 @@ const Navbar = () => {
 
                 <Link
                   className="hover:underline"
-                  to="/add-crop"
+                  to="/AddCrops"
                   onClick={() => setMenuOpen(false)}
                 >
                   Add Crops
@@ -140,7 +140,7 @@ const Navbar = () => {
 
                 <Link
                   className="hover:underline"
-                  to="/my-posts"
+                  to="/MyPosts"
                   onClick={() => setMenuOpen(false)}
                 >
                   My Posts
@@ -148,14 +148,14 @@ const Navbar = () => {
 
                 <Link
                   className="hover:underline"
-                  to="/my-interests"
+                  to="/MyInterests"
                   onClick={() => setMenuOpen(false)}
                 >
                   My Interests
                 </Link>
 
                 <button
-                  className="mt-2 md:mt-0 md:ml-2 px-3 py-1 bg-red-500 hover:bg-red-600 rounded transition"
+                  className="mt-2 md:mt-0 md:ml-2 px-3 py-1 bg-red-500 hover:bg-red-600 rounded transition bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
                   onClick={() => {
                     signOutUser();
                     setMenuOpen(false);

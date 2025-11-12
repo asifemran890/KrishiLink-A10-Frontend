@@ -15,7 +15,7 @@ import { Link } from "react-router";
 
 export default function Banner() {
   return (
-    <div className="container mx-auto  ">
+    <div className="container mx-auto  lg:w-7xl">
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -38,16 +38,16 @@ export default function Banner() {
             {/* Left Text Section */}
             <div className="relative z-10 flex-1 flex flex-col justify-start items-start gap-6  text-center lg:text-left mt-10 lg:mt-0">
               <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                <span className="text-primary">Teach</span> what you know,
-                <br className="hidden sm:block" />
-                <span className="text-primary">Learn</span> what you love.
+                Global Staple Food and Cereal Grain
               </p>
 
               <p className="text-gray-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-                TradeSmart is a smart platform where you can learn new skills by{" "}
-                <br className="hidden md:block" />
-                exchanging what you already know. Grow together through teaching
-                and learning.
+                Rice is the edible starchy grain of the grass plant Oryza sativa
+                (Asian rice) and is the most consumed staple food globally,
+                particularly across Asia and Africa. It is a vital annual
+                warm-season crop that requires a hot, humid climate and
+                substantial water to grow, often cultivated in flooded fields
+                called paddies.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -55,14 +55,7 @@ export default function Banner() {
                   to="/login"
                   className="py-3 sm:py-4 btn text-lg btn-outline btn-primary"
                 >
-                  Get Started
-                </Link>
-
-                <Link
-                  to="/login"
-                  className="py-3 sm:py-4 btn text-lg btn-outline btn-primary"
-                >
-                  Explore Skills
+                  View Details
                 </Link>
               </div>
             </div>
@@ -95,10 +88,12 @@ export default function Banner() {
               </p>
 
               <p className="text-gray-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-                TradeSmart is a smart platform where you can learn new skills by{" "}
-                <br className="hidden md:block" />
-                exchanging what you already know. Grow together through teaching
-                and learning.
+                The potato is a starchy tuber (modified underground stem) of the
+                nightshade family (Solanaceae). Originating in the Andes of
+                South America, it is now the fourth-largest food crop globally,
+                after rice, wheat, and maize. Potatoes are an excellent source
+                of carbohydrates (starch), along with significant amounts of
+                Vitamin C, Vitamin B6, and Potassium.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -106,14 +101,7 @@ export default function Banner() {
                   to="/login"
                   className="py-3 sm:py-4 btn text-lg btn-outline btn-primary"
                 >
-                  Get Started
-                </Link>
-
-                <Link
-                  to="/login"
-                  className="py-3 sm:py-4 btn text-lg btn-outline btn-primary"
-                >
-                  Explore Skills
+                  View Details
                 </Link>
               </div>
             </div>
@@ -164,14 +152,7 @@ export default function Banner() {
                   to="/login"
                   className="py-3 sm:py-4 btn text-lg btn-outline btn-primary"
                 >
-                  Get Started
-                </Link>
-
-                <Link
-                  to="/login"
-                  className="py-3 sm:py-4 btn text-lg btn-outline btn-primary"
-                >
-                  Explore Skills
+                  View Details
                 </Link>
               </div>
             </div>
