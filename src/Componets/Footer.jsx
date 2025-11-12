@@ -8,12 +8,17 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="  border-t mt-10 bg-black">
+    <footer className="  border-t mt-10 bg-[#124170]">
       <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <div className="text-2xl flex flex-row items-center space-x-1 mb-3  ">
+          <div className="text-2xl gap-1 flex flex-row items-center space-x-1 mb-3  ">
             {/* <img className="w-10" src={} alt="logo" /> */}
-            <h2 className="text-2xl font-bold text-primary ">KrishiLink</h2>
+            <img
+              className="w-10 h-10 rounded-3xl"
+              src="/src/assets/img/KrishiLink.png"
+              alt="logo"
+            />
+            <h2 className="text-2xl font-bold ">KrishiLink</h2>
           </div>
           <p className=" text-sm leading-relaxed">
             A smart platform to learn new skills by sharing what you already

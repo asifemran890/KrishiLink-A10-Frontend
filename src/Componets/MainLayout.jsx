@@ -8,7 +8,7 @@ import { VscLoading } from "react-icons/vsc";
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen  flex flex-col">
       <div className="z-50 ">
         <Navbar></Navbar>
       </div>

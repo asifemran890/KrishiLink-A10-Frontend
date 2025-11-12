@@ -6,7 +6,7 @@ const HomeCrops = () => {
   const data = useLoaderData();
   console.log(data);
   return (
-    <div>
+    <div className="bg-[#67C090]">
       <div className="text-3xl text-center font-bold p-5 text-lime-500  ">
         {" "}
         All Crops

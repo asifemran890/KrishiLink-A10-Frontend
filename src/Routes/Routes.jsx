@@ -6,10 +6,12 @@ import Register from "../Pages/Auth/Register";
 import Profile from "../Pages/Profile,/Profile";
 import PrivateRoute from "./PrivateRoute";
 import NotFoundPage from "../Pages/Error/NotFoundPage";
-import AllCrops from "../Pages/All Crops/AllCrops";
 import AddCrops from "../Pages/Add Crops/AddCrops";
 import MyPosts from "../Pages/My Posts/MyPosts";
 import MyInterests from "../Pages/MyInterests/MyInterests";
+import AllCropsDetails from "../Pages/All-crops-Details/AllCropsDetails";
+import AllCrops from "../Pages/All Crops/AllCrops";
+import CropsDetails from "../Pages/CropDetails/CropsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -35,9 +37,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/crops/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/crops/${params.id}`),
+        element: <CropsDetails />,
+      },
+      {
         path: "/AddCrops",
         element: <AddCrops />,
       },
+
       {
         path: "/MyPosts",
         element: <MyPosts></MyPosts>,

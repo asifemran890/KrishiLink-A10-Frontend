@@ -79,12 +79,16 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-green-600 text-white sticky top-0 z-50 shadow-md">
+    <header className="bg-[#DDF4E7] sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <div className="text-2xl">🌾</div>
-          <h1 className="text-xl font-semibold">KrishiLink</h1>
+          <img
+            className="w-10 h-10 rounded-3xl"
+            src="/src/assets/img/KrishiLink.png"
+            alt="logo"
+          />
+          <h1 className="text-xl text-black font-semibold">KrishiLink</h1>
         </div>
 
         {/* Mobile Menu Button */}
@@ -97,7 +101,7 @@ const Navbar = () => {
 
         {/* Navigation */}
         <nav
-          className={`md:flex md:space-x-6 md:static absolute left-0 w-full bg-green-600 md:w-auto transition-all duration-300 ${
+          className={`md:flex md:space-x-6 md:static absolute left-0 w-full text-black md:w-auto transition-all duration-300 ${
             menuOpen
               ? "top-16 opacity-100"
               : "top-[-400px] opacity-0 md:opacity-100"
