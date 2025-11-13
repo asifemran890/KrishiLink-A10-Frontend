@@ -1,17 +1,17 @@
 import React from "react";
 import { useLoaderData } from "react-router";
-import HomeCropsDetails from "../Home/HomeCropsDetails";
+import HomeCropsDetails from "../HomeCropsDetails";
 
 const HomeCrops = () => {
   const data = useLoaderData();
   console.log(data);
   return (
-    <div className="bg-[#67C090]">
-      <div className="text-3xl text-center font-bold p-5 text-lime-500  ">
+    <div className="bg-[#56DFCF]">
+      <div className="text-3xl text-center font-bold p-5 text-[#F75A5A]  ">
         {" "}
-        All Crops
+        Latest 6 Crops
       </div>
-      <p className=" text-center text-xl lg:w-7xl lg:mx-auto">
+      <p className=" text-center text-xl lg:w-7xl lg:mx-auto  text-black font-bold">
         They form the basis of global agriculture and are vital for human
         survival and economic stability. Major categories include grains (rice,
         wheat), pulses (beans, lentils), and oilseeds (soybean, mustard).

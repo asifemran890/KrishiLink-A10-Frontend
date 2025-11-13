@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/home"),
+        loader: () => fetch("http://localhost:3000/latest-crops"),
       },
       {
         path: "/AllCrops",
@@ -40,16 +40,25 @@ export const router = createBrowserRouter([
         path: "/crops/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/crops/${params.id}`),
-        element: <CropsDetails />,
+        element: (
+          <PrivateRoute>
+            <CropsDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/AddCrops",
-        element: <AddCrops />,
+        element: (
+          <PrivateRoute>
+            <AddCrops />,
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "/MyPosts",
         element: <MyPosts></MyPosts>,
+        loader: () => fetch("http://localhost:3000/post"),
       },
       {
         path: "/MyInterests",

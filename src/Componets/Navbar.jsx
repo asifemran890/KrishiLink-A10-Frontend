@@ -79,7 +79,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#DDF4E7] sticky top-0 z-50 shadow-md">
+    <header className="bg-[#0ABAB5] sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex items-center space-x-3">

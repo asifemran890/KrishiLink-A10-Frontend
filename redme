@@ -541,175 +541,505 @@
   }
 ]
 
-import { use, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../context/AuthContext";
-import toast from "react-hot-toast";
-
-const ModelDetails = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const [model, setModel] = useState({});
-  const [loading, setLoading] = useState(true);
-  const { user } = use(AuthContext);
-  const [refetch, setRefecth] = useState(false)
-
-  useEffect(() => {
-    fetch(`https://3d-model-server.vercel.app/models/${id}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setModel(data.result);
-        console.log(" Api called!")
-        console.log(data);
-        setLoading(false);
-      });
-  }, [user, id, refetch]);
-
-  const handleDlete = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`https://3d-model-server.vercel.app/models/${model._id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            navigate("/all-models");
-
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+[
+  {
+    "name": "Tomato",
+    "type": "Vegetable",
+    "pricePerUnit": 55,
+    "unit": "kg",
+    "quantity": 400,
+    "description": "Fresh organic tomatoes",
+    "location": "Bogura",
+    "image": "https://fthmb.tqn.com/PeDv5678yT2NsJrjiIsFeri5jYk=/2400x1589/filters:fill(auto,1)/tomatoes2x-56a495155f9b58b7d0d7ae11.jpg",
+    "interests": [
+      {
+        "cropId": "cs001",
+        "userEmail": "rahim@gmail.com",
+        "userName": "Rahim",
+        "quantity": 100,
+        "message": "Interested in 100kg",
+        "status": "pending"
       }
-    });
-  };
-
-  const handleDownload = () => {
-    const finalModel = {
-      name: model.name,
-      downloads: model.downloads,
-      created_by: model.created_by,
-      description: model.description,
-      thumbnail: model.thumbnail,
-      created_at: new Date(),
-      downloaded_by: user.email,
-    };
-
-    fetch(`https://3d-model-server.vercel.app/downloads/${model._id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(finalModel),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Successfully downloaded!");
-        setRefecth(!refetch)
-
-        // alternative solution of realtime download count update
-
-    //     fetch(`https://3d-model-server.vercel.app/models/${id}`, {
-    //   headers: {
-    //     authorization: `Bearer ${user.accessToken}`,
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setModel(data.result);
-    //     console.log(" Api called!")
-    //     console.log(data);
-    //     setLoading(false);
-    //   });
-
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  if (loading) {
-    return <div> Loading...</div>;
+    ],
+    "owner": {
+      "ownerEmail": "owner@gmail.com",
+      "ownerName": "Mr Owner"
+    },
+    "createdAt": "2025-11-13T10:45:20Z"
+  },
+  {
+    "name": "Potato",
+    "type": "Vegetable",
+    "pricePerUnit": 32,
+    "unit": "kg",
+    "quantity": 900,
+    "description": "Local fresh potatoes",
+    "location": "Rangpur",
+    "image": "https://th.bing.com/th/id/OIP.zB7AATBDNYVwv3rUfXbYcwHaE8?w=244&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs002",
+        "userEmail": "salma@gmail.com",
+        "userName": "Salma",
+        "quantity": 200,
+        "message": "Need 200kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm2@gmail.com",
+      "ownerName": "Grower Two"
+    },
+    "createdAt": "2025-11-13T10:45:19Z"
+  },
+  {
+    "name": "Onion",
+    "type": "Vegetable",
+    "pricePerUnit": 120,
+    "unit": "kg",
+    "quantity": 500,
+    "description": "Red onion imported",
+    "location": "Pabna",
+    "image": "https://th.bing.com/th/id/OIP.stMMA9JoZjwGrSvWlQzhqgHaEK?w=300&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs003",
+        "userEmail": "jamal@gmail.com",
+        "userName": "Jamal",
+        "quantity": 50,
+        "message": "Interested in 50kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm3@gmail.com",
+      "ownerName": "Grower Three"
+    },
+    "createdAt": "2025-11-13T10:45:18Z"
+  },
+  {
+    "name": "Carrot",
+    "type": "Vegetable",
+    "pricePerUnit": 70,
+    "unit": "kg",
+    "quantity": 250,
+    "description": "Organic carrots",
+    "location": "Jashore",
+    "image": "https://img.taste.com.au/ijyhNEs4/w720-h480-cfill-q80/taste/2007/03/carrots-181856-2.jpg",
+    "interests": [
+      {
+        "cropId": "cs004",
+        "userEmail": "nadia@gmail.com",
+        "userName": "Nadia",
+        "quantity": 40,
+        "message": "Need 40kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm4@gmail.com",
+      "ownerName": "Grower Four"
+    },
+    "createdAt": "2025-11-13T10:45:17Z"
+  },
+  {
+    "name": "Cabbage",
+    "type": "Vegetable",
+    "pricePerUnit": 45,
+    "unit": "kg",
+    "quantity": 300,
+    "description": "Green fresh cabbage",
+    "location": "Sirajganj",
+    "image": "https://th.bing.com/th/id/OIP.xAHFFt-wX5PFpGalkmhkKAHaE8?w=274&h=183&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs005",
+        "userEmail": "karim@gmail.com",
+        "userName": "Karim",
+        "quantity": 60,
+        "message": "Interested in 60kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm5@gmail.com",
+      "ownerName": "Grower Five"
+    },
+    "createdAt": "2025-11-13T10:45:16Z"
+  },
+  {
+    "name": "Eggplant",
+    "type": "Vegetable",
+    "pricePerUnit": 50,
+    "unit": "kg",
+    "quantity": 220,
+    "description": "Organic eggplants",
+    "location": "Mymensingh",
+    "image": "https://wurbal.in/wp-content/uploads/2023/08/Eggplant.jpg",
+    "interests": [
+      {
+        "cropId": "cs006",
+        "userEmail": "sofia@gmail.com",
+        "userName": "Sofia",
+        "quantity": 30,
+        "message": "Need 30kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm6@gmail.com",
+      "ownerName": "Grower Six"
+    },
+    "createdAt": "2025-11-13T10:45:15Z"
+  },
+  {
+    "name": "Chili",
+    "type": "Vegetable",
+    "pricePerUnit": 140,
+    "unit": "kg",
+    "quantity": 150,
+    "description": "Fresh green chili",
+    "location": "Cumilla",
+    "image": "https://th.bing.com/th/id/OIP._D61XRjNE7gvDF8nDAoepQHaE8?w=241&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs007",
+        "userEmail": "ali@gmail.com",
+        "userName": "Ali",
+        "quantity": 20,
+        "message": "Need 20kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm7@gmail.com",
+      "ownerName": "Grower Seven"
+    },
+    "createdAt": "2025-11-13T10:45:14Z"
+  },
+  {
+    "name": "Pumpkin",
+    "type": "Vegetable",
+    "pricePerUnit": 30,
+    "unit": "kg",
+    "quantity": 600,
+    "description": "Large pumpkins",
+    "location": "Gaibandha",
+    "image": "https://hannahromanowsky.com/wp-content/uploads/2023/11/pumpkinpower.jpg",
+    "interests": [
+      {
+        "cropId": "cs008",
+        "userEmail": "tania@gmail.com",
+        "userName": "Tania",
+        "quantity": 80,
+        "message": "Interested in 80kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm8@gmail.com",
+      "ownerName": "Grower Eight"
+    },
+    "createdAt": "2025-11-13T10:45:13Z"
+  },
+  {
+    "name": "Cauliflower",
+    "type": "Vegetable",
+    "pricePerUnit": 60,
+    "unit": "kg",
+    "quantity": 350,
+    "description": "White organic cauliflower",
+    "location": "Sylhet",
+    "image": "https://th.bing.com/th/id/OIP.DROB2qyjyCs8LnWEz2uTiwHaE7?w=304&h=203&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs009",
+        "userEmail": "sultan@gmail.com",
+        "userName": "Sultan",
+        "quantity": 70,
+        "message": "Need 70kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm9@gmail.com",
+      "ownerName": "Grower Nine"
+    },
+    "createdAt": "2025-11-13T10:45:12Z"
+  },
+  {
+    "name": "Spinach",
+    "type": "Vegetable",
+    "pricePerUnit": 25,
+    "unit": "kg",
+    "quantity": 180,
+    "description": "Fresh spinach leaves",
+    "location": "Dhaka",
+    "image": "https://th.bing.com/th/id/OIP.LKTEuQTXPRYPoD3QbOOeGgHaD4?w=292&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs010",
+        "userEmail": "mina@gmail.com",
+        "userName": "Mina",
+        "quantity": 15,
+        "message": "Need 15kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm10@gmail.com",
+      "ownerName": "Grower Ten"
+    },
+    "createdAt": "2025-11-13T10:45:11Z"
+  },
+  {
+    "name": "Banana",
+    "type": "Fruit",
+    "pricePerUnit": 20,
+    "unit": "dozen",
+    "quantity": 120,
+    "description": "Ripe bananas",
+    "location": "Tangail",
+    "image": "https://th.bing.com/th/id/OIP.muTer0cU8mGAiClspk3oIgHaFE?w=274&h=187&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs011",
+        "userEmail": "rahman@gmail.com",
+        "userName": "Rahman",
+        "quantity": 10,
+        "message": "Need 10 dozen",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm11@gmail.com",
+      "ownerName": "Grower Eleven"
+    },
+    "createdAt": "2025-11-13T10:45:01Z"
+  },
+  {
+    "name": "Mango",
+    "type": "Fruit",
+    "pricePerUnit": 90,
+    "unit": "kg",
+    "quantity": 500,
+    "description": "Seasonal mangoes",
+    "location": "Rajshahi",
+    "image": "https://th.bing.com/th/id/OIP.3fS6QkJ3346ozafpti9I7gHaEv?w=290&h=186&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs012",
+        "userEmail": "hasan@gmail.com",
+        "userName": "Hasan",
+        "quantity": 50,
+        "message": "Need 50kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm12@gmail.com",
+      "ownerName": "Grower Twelve"
+    },
+    "createdAt": "2025-11-13T10:45:02Z"
+  },
+  {
+    "name": "Papaya",
+    "type": "Fruit",
+    "pricePerUnit": 40,
+    "unit": "kg",
+    "quantity": 320,
+    "description": "Fresh papaya",
+    "location": "Narsingdi",
+    "image": "https://th.bing.com/th/id/OIP.wxYAEDo1CkDoU-S_dM27uAHaE8?w=291&h=193&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs013",
+        "userEmail": "razu@gmail.com",
+        "userName": "Razu",
+        "quantity": 35,
+        "message": "Need 35kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm13@gmail.com",
+      "ownerName": "Grower Thirteen"
+    },
+    "createdAt": "2025-11-13T10:45:03Z"
+  },
+  {
+    "name": "Pineapple",
+    "type": "Fruit",
+    "pricePerUnit": 60,
+    "unit": "piece",
+    "quantity": 90,
+    "description": "Sweet pineapples",
+    "location": "Khagrachhari",
+    "image": "https://th.bing.com/th/id/OIP.amNAlGk5x7-2aWzh9If7YQHaDt?w=342&h=174&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs014",
+        "userEmail": "sima@gmail.com",
+        "userName": "Sima",
+        "quantity": 12,
+        "message": "Need 12 pieces",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm14@gmail.com",
+      "ownerName": "Grower Fourteen"
+    },
+    "createdAt": "2025-11-13T10:45:04Z"
+  },
+  {
+    "name": "Cucumber",
+    "type": "Vegetable",
+    "pricePerUnit": 35,
+    "unit": "kg",
+    "quantity": 260,
+    "description": "Fresh cucumbers",
+    "location": "Chattogram",
+    "image": "https://th.bing.com/th/id/OIP.H6N_v9xB9ivvL-iQeLYorgHaE7?w=247&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs015",
+        "userEmail": "arif@gmail.com",
+        "userName": "Arif",
+        "quantity": 45,
+        "message": "Need 45kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm15@gmail.com",
+      "ownerName": "Grower Fifteen"
+    },
+    "createdAt": "2025-11-13T10:45:05Z"
+  },
+  {
+    "name": "Ginger",
+    "type": "Vegetable",
+    "pricePerUnit": 180,
+    "unit": "kg",
+    "quantity": 140,
+    "description": "Local fresh ginger",
+    "location": "Bandarban",
+    "image": "https://th.bing.com/th/id/OIP.AuuJ-8YRflA_nI0aizlchQHaEh?w=262&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs016",
+        "userEmail": "nila@gmail.com",
+        "userName": "Nila",
+        "quantity": 20,
+        "message": "Need 20kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm16@gmail.com",
+      "ownerName": "Grower Sixteen"
+    },
+    "createdAt": "2025-11-13T10:45:06Z"
+  },
+  {
+    "name": "Garlic",
+    "type": "Vegetable",
+    "pricePerUnit": 160,
+    "unit": "kg",
+    "quantity": 180,
+    "description": "Imported garlic",
+    "location": "Lakshmipur",
+    "image": "https://th.bing.com/th/id/OIP.UWQ0FBgTRfgt_Ly5WaYamwHaE9?w=280&h=187&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs017",
+        "userEmail": "tarek@gmail.com",
+        "userName": "Tarek",
+        "quantity": 25,
+        "message": "Need 25kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm17@gmail.com",
+      "ownerName": "Grower Seventeen"
+    },
+    "createdAt": "2025-11-13T10:45:07Z"
+  },
+  {
+    "name": "Watermelon",
+    "type": "Fruit",
+    "pricePerUnit": 55,
+    "unit": "kg",
+    "quantity": 700,
+    "description": "Large juicy watermelons",
+    "location": "Patuakhali",
+    "image": "https://th.bing.com/th/id/OIP.ZuM-tV9K13z5NWOSas_eaAAAAA?w=299&h=183&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs018",
+        "userEmail": "bhuiyan@gmail.com",
+        "userName": "Bhuiyan",
+        "quantity": 90,
+        "message": "Need 90kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm18@gmail.com",
+      "ownerName": "Grower Eighteen"
+    },
+    "createdAt": "2025-11-13T10:45:08Z"
+  },
+  {
+    "name": "Guava",
+    "type": "Fruit",
+    "pricePerUnit": 50,
+    "unit": "kg",
+    "quantity": 240,
+    "description": "Fresh guava",
+    "location": "Barishal",
+    "image": "https://th.bing.com/th/id/OIP.z5GhvfCTi6AsEJrQI8PdzwHaEK?w=319&h=180&c=7&r=0&o=7&cb=ucfimgc2&dpr=1.3&pid=1.7&rm=3",
+    "interests": [
+      {
+        "cropId": "cs019",
+        "userEmail": "rahat@gmail.com",
+        "userName": "Rahat",
+        "quantity": 30,
+        "message": "Need 30kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm19@gmail.com",
+      "ownerName": "Grower Nineteen"
+    },
+    "createdAt": "2025-11-13T10:45:09Z"
+  },
+  {
+    "name": "Lychee",
+    "type": "Fruit",
+    "pricePerUnit": 95,
+    "unit": "kg",
+    "quantity": 150,
+    "description": "Seasonal lychee",
+    "location": "Dinajpur",
+    "image": "https://bksas.ru/wp-content/uploads/Lychee-Madagascar.jpg",
+    "interests": [
+      {
+        "cropId": "cs020",
+        "userEmail": "shila@gmail.com",
+        "userName": "Shila",
+        "quantity": 25,
+        "message": "Need 25kg",
+        "status": "pending"
+      }
+    ],
+    "owner": {
+      "ownerEmail": "farm20@gmail.com",
+      "ownerName": "Grower Twenty"
+    },
+    "createdAt": "2025-11-13T10:45:10Z"
   }
-
-  return (
-    <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
-      <div className="card bg-base-100 shadow-xl border border-gray-200 rounded-2xl overflow-hidden">
-        <div className="flex flex-col md:flex-row gap-8 p-6 md:p-8">
-          <div className="shrink-0 w-full md:w-1/2">
-            <img
-              src={model.thumbnail}
-              alt=""
-              className="w-full object-cover rounded-xl shadow-md"
-            />
-          </div>
-
-          <div className="flex flex-col justify-center space-y-4 w-full md:w-1/2">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-              {model.name}
-            </h1>
-
-            <div className="flex gap-3">
-              <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
-                {model.category}
-              </div>
-
-              <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
-                Downloaded: {model.downloads}
-              </div>
-            </div>
-
-            <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-              {model.description}
-            </p>
-
-            <div className="flex gap-3 mt-6">
-              <Link
-                to={`/update-model/${model._id}`}
-                className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700"
-              >
-                Update Model
-              </Link>
-              <button
-                onClick={handleDownload}
-                className="btn btn-secondary rounded-full"
-              >
-                Download
-              </button>
-              <button
-                onClick={handleDlete}
-                className="btn btn-outline rounded-full border-gray-300 hover:border-pink-500 hover:text-pink-600"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ModelDetails;
+]

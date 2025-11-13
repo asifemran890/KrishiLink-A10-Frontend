@@ -10,9 +10,13 @@ const AddCrops = () => {
       type: e.target.type.value,
       description: e.target.description.value,
       image: e.target.image.value,
+      location: e.target.location.value,
+      pricePerUnit: e.target.pricePerUnit.value,
+      created_at: new Date(),
+      unit: "kg",
     };
 
-    fetch("http://localhost:3000/crops", {
+    fetch("http://localhost:3000/post", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +50,7 @@ const AddCrops = () => {
             />
           </div>
 
-          {/* Category Dropdown */}
+          {/* type  */}
           <div>
             <label className="label font-medium">Type</label>
             <input
@@ -57,22 +61,52 @@ const AddCrops = () => {
               placeholder="type"
             />
           </div>
+          {/* Weight  */}
+          <div>
+            <label className="label font-medium">Weight</label>
+            <input
+              type="text"
+              name="pricePerUnit"
+              required
+              className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+              placeholder="Weight"
+            />
+            {/* <label className="label font-medium">Kg</label>
+            <input
+              type="text"
+              name="unit"
+              required
+              className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+              placeholder="Kg"
+            /> */}
+          </div>
+          {/* location */}
+          <div>
+            <label className="label font-medium">location</label>
+            <input
+              type="text"
+              name="location"
+              required
+              className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+              placeholder="location"
+            />
+          </div>
 
           {/* Description Textarea */}
           <div>
-            <label className="label font-medium">Description</label>
+            <label className="label  font-medium">Description</label>
             <textarea
               name="description"
               required
               rows="3"
-              className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[250px]"
+              className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[100px]"
               placeholder="Enter description"
             ></textarea>
           </div>
 
-          {/* Thumbnail URL */}
+          {/*  image URL */}
           <div>
-            <label className="label font-medium">Thumbnail URL</label>
+            <label className="label font-medium"> Image URL</label>
             <input
               type="url"
               name="image"

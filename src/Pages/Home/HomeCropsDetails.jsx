@@ -1,9 +1,10 @@
 import React from "react";
-import { AuthContext } from "../../context/AuthContext";
+
+import { Link } from "react-router";
 const HomeCropsDetails = ({ home }) => {
   const { name, image, _id, description } = home;
   return (
-    <div className="card bg-emerald-800 w-96 mt-10 shadow-sm lg:grid-cols-3">
+    <div className="card bg-white w-96 mt-10 shadow-sm lg:grid-cols-3">
       <figure>
         <img
           className="md:p-3  w-[400px] h-[250px] object-cover rounded-4xl shadow-md"
@@ -13,12 +14,15 @@ const HomeCropsDetails = ({ home }) => {
       </figure>
 
       <div className="card-body ">
-        <h2 className="card-title ">{name}</h2>
-        <p>{description}</p>
-        <div className="card-actions  ">
-          <button className="py-2 sm:py-3 btn  rounded-3xl btn-outline ">
+        <h2 className="card-title  text-black">Name : {name}</h2>
+        <p className=" text-black line-clamp-1 ">Description : {description}</p>
+        <div className="card-actions  text-black ">
+          <Link
+            to={`/crops/${_id}`}
+            className="py-2 sm:py-3 btn  rounded-3xl btn-outline "
+          >
             View All
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 
-const AllCropsDetails = ({ crops }) => {
+const PostDetails = ({ post }) => {
   const { name, image, _id, description, pricePerUnit, unit, location, type } =
-    crops;
+    post;
 
   return (
     <div className="card bg-white w-96 mt-10 shadow-sm lg:grid-cols-3">
@@ -36,4 +36,4 @@ const AllCropsDetails = ({ crops }) => {
   );
 };
 
-export default AllCropsDetails;
+export default PostDetails;
