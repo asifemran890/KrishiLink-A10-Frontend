@@ -16,7 +16,7 @@ const AddCrops = () => {
       unit: "kg",
     };
 
-    fetch("http://localhost:3000/post", {
+    fetch("https://backend-bay-tau-10.vercel.app/post", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -8,7 +8,7 @@ export const AllCrops = () => {
 
   return (
     <div>
-      <div className="text-3xl text-center font-bold p-5 text-lime-500  ">
+      <div className="text-3xl text-center font-bold p-5  text-lime-500  ">
         {" "}
         All Crops
       </div>
@@ -19,7 +19,7 @@ export const AllCrops = () => {
         Successful cultivation depends on soil, climate, and proper management
         (fertilization, irrigation, and pest control)
       </p>
-      <div className="grid grid-cols-2 place-items-center mx-auto w-7xl lg:grid-cols-3">
+      <div className="container grid grid-cols-1 md:p-5 lg:place-items-center mx-auto w-7xl lg:grid-cols-3">
         {data.map((crops) => (
           <AllCropsDetails key={crops._id} crops={crops} />
         ))}

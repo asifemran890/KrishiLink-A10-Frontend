@@ -9,7 +9,7 @@ const AllCropsDetails = ({ crops }) => {
     <div className="card bg-white w-96 mt-10 shadow-sm lg:grid-cols-3">
       <figure>
         <img
-          className="md:p-3  w-[400px] h-[250px] object-cover rounded-4xl shadow-md"
+          className="md:p-3  w-[400px] h-[250px] hover:scale-105 transition-transform duration-300 object-cover rounded-4xl shadow-md"
           src={image}
           alt="Shoes"
         />
