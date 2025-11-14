@@ -18,7 +18,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-2xl"
+          className="md:hidden text-2xl "
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
@@ -26,9 +26,9 @@ const Navbar = () => {
 
         {/* Navigation */}
         <nav
-          className={`md:flex md:space-x-3 md:static absolute left-0 w-full  md:w-auto transition-all duration-300 ${
+          className={`md:flex md:space-x-3  md:static absolute left-0 w-full  md:w-auto transition-all duration-300 ${
             menuOpen
-              ? "top-16 opacity-100"
+              ? "top-16 opacity-100 bg-emerald-700 "
               : "top-[-400px] opacity-0 md:opacity-100"
           }`}
         >

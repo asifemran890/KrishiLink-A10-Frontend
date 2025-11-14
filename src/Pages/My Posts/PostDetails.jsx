@@ -6,7 +6,7 @@ const PostDetails = ({ post }) => {
     post;
 
   return (
-    <div className="card bg-white w-96 mt-10 shadow-sm lg:grid-cols-3">
+    <div className="card bg-white w-96 mt-10 shadow-sm  md:grid-cols-1 lg:grid-cols-3">
       <figure>
         <img
           className="md:p-3  w-[400px] h-[250px] object-cover rounded-4xl shadow-md"
