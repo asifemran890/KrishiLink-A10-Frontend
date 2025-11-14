@@ -7,12 +7,12 @@ import Logo from "../assets/img/KrishiLink.png";
 export default function Footer() {
   return (
     <footer className="  border-t  bg-[#003C43]">
-      <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 text-white py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="text-2xl gap-1 flex flex-row items-center space-x-1 mb-3  ">
             {/* <img className="w-10" src={} alt="logo" /> */}
             <img className="w-10 h-10 rounded-3xl" src={Logo} alt="logo" />
-            <h2 className="text-2xl font-bold ">KrishiLink</h2>
+            <h2 className="text-2xl font-bold  ">KrishiLink</h2>
           </div>
           <p className=" text-sm leading-relaxed">
             KrishiConnect was founded in 2025 with a vision to revolutionize

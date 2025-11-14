@@ -19,7 +19,7 @@ export const AllCrops = () => {
         Successful cultivation depends on soil, climate, and proper management
         (fertilization, irrigation, and pest control)
       </p>
-      <div className="container grid grid-cols-1 md:p-5 lg:place-items-center mx-auto w-7xl lg:grid-cols-3">
+      <div className="container grid grid-cols-1 p-4 md:p-5 lg:place-items-center mx-auto w-7xl lg:grid-cols-3">
         {data.map((crops) => (
           <AllCropsDetails key={crops._id} crops={crops} />
         ))}
