@@ -1,73 +1,61 @@
-import React, { useEffect, useState } from "react";
+import { updateProfile } from "firebase/auth";
 import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function MyProfile() {
-  const { profileUpdate, user } = useAuth();
+  const { user } = useAuth();
+  const { displayName, email, photoURL } = user;
 
-  const [currentUser, setCurrentUser] = useState(user);
-  const { displayName, email, photoURL } = currentUser;
-  useEffect(() => {
-    setCurrentUser({ ...user });
-  }, [user]);
+  const [loading, setLoading] = useState(false);
 
-  // update profile
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     const name = e.target.name.value;
     const image = e.target.image.value;
-    console.log(name, image);
 
-    const dialog = document.getElementById("my_modal_2");
-    if (name && image) {
-      const profile = {
-        displayName: name,
-        photoURL: image,
-      };
-      await profileUpdate(profile);
-      setCurrentUser({
-        ...currentUser,
+    try {
+      await updateProfile(user, {
         displayName: name,
         photoURL: image,
       });
 
-      toast.success("Update your profile successfuly!");
+      toast.success("Profile updated successfully!!");
 
-      e.target.reset();
-      dialog.close();
-    } else {
-      toast.error("Please fill up you update profile from");
+      // Refresh UI
+      setTimeout(() => {
+        window.location.reload();
+      }, 800);
+    } catch (error) {
+      console.error(error);
+      toast.error("Error updating profile: " + error.message);
     }
+
+    setLoading(false);
   };
+
   return (
-    <div className="h-[800px]  flex flex-col">
-      {/* Content */}
+    <div className="h-[800px] flex flex-col">
       <div className="grow flex flex-col items-center justify-center px-6 py-12">
         <h1 className="text-3xl font-semibold tracking-wide mb-8">
           My Profile
         </h1>
 
         <div className="bg-gray-50 max-w-sm w-full rounded-2xl shadow-lg p-10 text-center text-gray-800">
-          {/* Profile Image */}
           <img
             src={photoURL}
             alt="img"
             className="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-indigo-500 object-cover shadow-md"
           />
 
-          {/* User Info */}
-          <h1 className="text-3xl font-bold mb-2 text-indigo-600">
-            Name : {displayName}
-          </h1>
-          <p className="text-indigo-500 text-lg mb-10 font-light">
-            Gmail : {email}
-          </p>
+          <h1 className="text-3xl font-bold mb-2">Name : {displayName}</h1>
+          <p className="text-lg mb-10 font-light">Gmail : {email}</p>
 
-          {/* Update Button */}
           <button
             onClick={() => document.getElementById("my_modal_2").showModal()}
-            className="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 transition-colors duration-200 rounded-full px-12 py-3 font-medium text-white shadow-md shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            aria-label="Update Profile"
+            className="bg-[#04AA6D] hover:bg-cyan-300 rounded-full px-12 py-3 text-white shadow-md"
           >
             Update Profile
           </button>
@@ -75,71 +63,50 @@ export default function MyProfile() {
       </div>
 
       <dialog id="my_modal_2" className="modal">
-        <div className="modal-box relative bg-white/60 backdrop-blur-2xl border border-white/50 shadow-2xl text-gray-800 rounded-3xl p-8 transition-all duration-300">
-          {/* Close Button (Top-right) */}
+        <div className="modal-box bg-white/60 backdrop-blur-xl border shadow-2xl text-gray-800 rounded-3xl p-8">
           <form method="dialog" className="absolute right-4 top-4">
-            <button className="btn btn-sm btn-circle btn-ghost hover:bg-indigo-100 hover:text-indigo-600 transition-all">
-              ✕
-            </button>
+            <button className="btn btn-sm btn-circle btn-ghost">✕</button>
           </form>
 
-          {/* Header */}
-          <h3 className="font-bold text-3xl text-center text-indigo-700 mb-8 tracking-wide">
+          <h3 className="font-bold text-3xl text-center mb-8">
             🧑‍💻 Update Profile
           </h3>
 
-          {/* Form */}
-          <form
-            onSubmit={handleUpdateProfile}
-            method="dialog"
-            className="space-y-6"
-          >
-            {/* Name Field */}
+          <form onSubmit={handleUpdateProfile} className="space-y-6">
             <div>
-              <label className="block  font-semibold text-black mb-2">
-                Full Name
-              </label>
+              <label className="block font-semibold mb-2">Full Name</label>
               <input
                 type="text"
                 name="name"
-                placeholder="Enter your name"
-                className="input input-bordered w-full focus:outline-none rounded-xl bg-white/70 focus:bg-white focus:ring-2 focus:ring-indigo-500 transition-all"
+                defaultValue={displayName}
+                className="input input-bordered w-full rounded-xl"
                 required
               />
             </div>
 
-            {/* Photo URL Field */}
             <div>
-              <label className="block  font-semibold text-black mb-2">
-                Photo URL
-              </label>
+              <label className="block font-semibold mb-2">Photo URL</label>
               <input
                 type="url"
                 name="image"
-                placeholder="Enter your photo URL"
-                className="input input-bordered w-full focus:outline-none rounded-xl bg-white/70 focus:bg-white focus:ring-2 focus:ring-indigo-500 transition-all"
+                defaultValue={photoURL}
+                className="input input-bordered w-full rounded-xl"
                 required
               />
             </div>
 
-            {/* Save Button */}
             <div className="pt-4 flex justify-center">
               <button
-                method="dialog"
                 type="submit"
-                className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-700 hover:shadow-xl active:scale-95 transition-all duration-200"
+                className="px-8 py-3 bg-[#04AA6D] text-white font-semibold rounded-xl"
               >
-                Save Changes
+                {loading ? "Saving..." : "Save Changes"}
               </button>
             </div>
           </form>
         </div>
 
-        {/* Background Overlay */}
-        <form
-          method="dialog"
-          className="modal-backdrop bg-black/5 backdrop-blur-xs"
-        >
+        <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
       </dialog>

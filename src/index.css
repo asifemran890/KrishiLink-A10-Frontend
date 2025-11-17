@@ -5,3 +5,6 @@
 * {
   font-family: "Inter", sans-serif;
 }
+@plugin "daisyui" {
+  themes: light --default;
+}

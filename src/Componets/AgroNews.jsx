@@ -13,10 +13,9 @@ const AgroNews = () => {
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80",
+        "https://lh3.googleusercontent.com/proxy/A_r39XyEvcM2S5NYvMTYpSzCdyZSEijkXFJbmy_8_3Sy8LGBLM5omTdVQcu45OKYbeVSFI2WMldhVNXHA7cd7k0zlZz7LCrR6LZtvu4aN8PwhHQfwNRbbWXbyx_rWwGc0A",
       title: "Organic Farming Gains Momentum Across Rural Communities",
-      excerpt:
-        "More farmers are adopting organic practices, responding to growing consumer demand for chemical-free produce and sustainable agriculture methods.",
+      excerpt: "Cultivating land for planting rice",
       date: "November 8, 2025",
       category: "Organic",
     },

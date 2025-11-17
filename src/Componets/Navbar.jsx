@@ -8,7 +8,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#0ABAB5] sticky top-0 z-50 shadow-md">
+    <header className=" sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex items-center space-x-3">
@@ -93,7 +93,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <button
-                  className="mt-2 md:mt-0 md:ml-2 px-3 py-1 bg-red-500 hover:bg-red-600 rounded transition bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
+                  className="mt-2 md:mt-0 md:ml-2 px-3 py-1 bg-[#04AA6D] hover:bg-cyan-300 rounded transition bg-linear-to-r "
                   onClick={() => {
                     signOutUser();
                     setMenuOpen(false);
