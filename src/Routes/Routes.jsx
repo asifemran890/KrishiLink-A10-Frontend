@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () =>
-          fetch("https://backend-bay-tau-10.vercel.app/latest-crops"),
+          fetch("https://backend-bay-tau-10.vercel.app/latest-post"),
       },
       {
         path: "/AllCrops",
@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
         path: "/AddCrops",
         element: (
           <PrivateRoute>
-            <AddCrops />,
+            <AddCrops />
           </PrivateRoute>
         ),
       },
@@ -59,7 +59,6 @@ export const router = createBrowserRouter([
       {
         path: "/MyPosts",
         element: <MyPosts></MyPosts>,
-        loader: () => fetch("https://backend-bay-tau-10.vercel.app/post"),
       },
       {
         path: "/MyInterests",

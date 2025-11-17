@@ -6,7 +6,7 @@ const HomeCrops = () => {
   const data = useLoaderData();
   console.log(data);
   return (
-    <div className="bg-[#56DFCF] h-[1150px] container mx-auto px-4 py-16  aos-init aos-animate">
+    <div className="bg-[#eaeced]  h-[1150px] container mx-auto px-4 py-16  aos-init aos-animate">
       <div className="text-3xl text-center font-bold p-5 text-[#F75A5A]  ">
         {" "}
         Latest 6 Crops

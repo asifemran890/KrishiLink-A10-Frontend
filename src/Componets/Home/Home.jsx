@@ -14,7 +14,6 @@ const Home = () => {
       <AgroNews></AgroNews>
       <Features></Features>
       <HomeCrops />
-      
     </div>
   );
 };

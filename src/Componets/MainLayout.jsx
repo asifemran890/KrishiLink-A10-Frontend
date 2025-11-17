@@ -8,14 +8,11 @@ import { VscLoading } from "react-icons/vsc";
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="z-50 ">
-        <Navbar></Navbar>
-      </div>
-      {/* Main  */}
-      <div className="z-20 grow ">
+    <div>
+      <Navbar></Navbar>
+      <main>
         <Outlet />
-      </div>
+      </main>
       <Footer></Footer>
     </div>
   );

@@ -37,7 +37,7 @@ export default function MyProfile() {
   };
 
   return (
-    <div className="h-[800px] flex flex-col">
+    <div className="h-[600px] flex flex-col">
       <div className="grow flex flex-col items-center justify-center px-6 py-12">
         <h1 className="text-3xl font-semibold tracking-wide mb-8">
           My Profile

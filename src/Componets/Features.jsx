@@ -129,7 +129,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="container bg-white ">
+    <div className="container bg-[#eaeced] ">
       <div className="mx-auto px-4 py-16 lg:w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl text-black font-bold mb-4">

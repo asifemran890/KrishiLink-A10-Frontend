@@ -69,7 +69,7 @@ const Banner = () => {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative h-[500px] md:h-[600px] lg:h-[700px]">
+            <div className="relative h-[800px] md:h-[600px] lg:h-[600px]">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${slide.image})` }}

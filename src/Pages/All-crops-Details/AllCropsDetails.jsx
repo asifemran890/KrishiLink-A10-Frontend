@@ -6,10 +6,10 @@ const AllCropsDetails = ({ crops }) => {
     crops;
 
   return (
-    <div className="card bg-white w-96 mt-10 md:p-3 shadow-sm lg:grid-cols-3">
+    <div className="card bg-white  w-96 mt-10 md:p-3 shadow-sm lg:grid-cols-3">
       <figure>
         <img
-          className="md:p-3  w-[400px] h-[250px] hover:scale-105 transition-transform duration-300 object-cover rounded-4xl shadow-md"
+          className="  w-[400px] h-[250px] hover:scale-105 transition-transform duration-300 object-cover rounded-4xl shadow-md"
           src={image}
           alt="Shoes"
         />

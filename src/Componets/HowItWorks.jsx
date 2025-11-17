@@ -87,7 +87,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16 bg-yellow-50">
+    <div className="container mx-auto px-4 py-16 bg-[#eaeced]">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-4 text-black">How It Works</h2>
         <p className="text-lg text-black max-w-2xl mx-auto">

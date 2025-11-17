@@ -23,17 +23,13 @@ export const AllCrops = () => {
   };
 
   return (
-    <div className="bg-emerald-200">
-      <div className="text-3xl text-center font-bold p-5  text-lime-500  ">
-        {" "}
-        All Crops
-      </div>
+    <div className="bg-[#eaeced]">
+      <div className="text-3xl text-center font-bold p-5   "> All Crops</div>
       <p className=" text-center text-xl lg:w-7xl text-black lg:mx-auto">
         They form the basis of global agriculture and are vital for human
-        survival and economic stability. Major categories include grains (rice,
-        wheat), pulses (beans, lentils), and oilseeds (soybean, mustard).
+        survival and economic stability. Major categories include grains.
         Successful cultivation depends on soil, climate, and proper management
-        (fertilization, irrigation, and pest control)
+        fertilization, irrigation, and pest control.
       </p>
       <form
         onSubmit={handleSearch}
