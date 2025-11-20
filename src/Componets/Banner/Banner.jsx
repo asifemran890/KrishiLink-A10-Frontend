@@ -9,41 +9,37 @@ const Banner = () => {
   const slides = [
     {
       id: 1,
-      image: "https://westhanover.com/ImageRepository/Document?documentID=1127",
-      title: "Apple fruit is very beneficial for health. ",
+      image:
+        "https://www.1stfruits.co.za/wp/wp-content/uploads/2022/09/HomeSlide001.jpg",
+      title: "Apple fruit. ",
 
-      description:
-        "An apple is the round, edible fruit of an apple tree. Fruit trees of the orchard or domestic apple, the most widely grown in the genus, are cultivated worldwide. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found.",
+      description: "An apple is the round, edible fruit of an apple tree. ",
       cta: "Get Started",
       link: "/register",
     },
     {
       id: 2,
-      image:
-        "https://5.imimg.com/data5/SELLER/Default/2021/6/NV/GA/MH/108377536/fruits-500x500.jpg",
-      title: "Fruits are the means by which flowering plants .",
-      description:
-        "Fruits are the means by which flowering plants disseminate their seeds. Edible fruits in particular .",
+      image: "https://wallpapercave.com/wp/wp2758579.jpg",
+      title: " Fruit Trees",
+      description: "Fruits are the means by which flowering plants .",
       cta: "Add Your Crop",
       link: "/AddCrops",
     },
     {
       id: 3,
       image:
-        "https://i.pinimg.com/originals/87/a0/0a/87a00a5e8d756e352d008b5cc40aedfb.jpg",
+        "https://www.epicgardening.com/wp-content/uploads/2025/01/Close-up-lychee-trees-1536x864.jpg",
       title: "Discover Quality Produce",
-      description:
-        "Browse fresh crops from verified farmers. Find exactly what you need for your farm or business.",
+      description: "Browse fresh crops from verified farmers.",
       cta: "Browse Crops",
       link: "/AllCrops",
     },
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1920&q=80",
+        "https://www.naplesgarden.org/wp-content/uploads/2023/07/mango-1.jpg",
       title: "Grow Together",
-      description:
-        "Access expert farming advice, weather updates, and market prices. Empowering farmers for a better tomorrow.",
+      description: "Access expert farming advice, weather updates.",
       cta: "Learn More",
       link: "/AllCrops",
     },
@@ -74,12 +70,12 @@ const Banner = () => {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${slide.image})` }}
               >
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 "></div>
               </div>
 
-              <div className="relative h-full flex items-center justify-center px-4">
-                <div className="max-w-4xl mx-auto text-center text-white">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+              {/* <div className="relative h-full flex items-center justify-center px-4">
+                <div className="max-w-4xl  mx-auto text-center text-white">
+                  <h1 className="text-4xl text-red-500 md:text-5xl lg:text-6xl font-bold  animate-fade-in">
                     {slide.title}
                   </h1>
                   <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in-delay">
@@ -105,7 +101,7 @@ const Banner = () => {
                     </svg>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </SwiperSlide>
         ))}

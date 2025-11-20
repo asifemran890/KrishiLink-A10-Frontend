@@ -8,10 +8,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="  top-0 z-50 shadow-md">
+    <header className="  ">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center ">
           <img className="w-10 h-10 rounded-3xl" src={logo} alt="logo" />
           <h1 className="text-xl text-black font-semibold">KrishiLink</h1>
         </div>

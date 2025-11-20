@@ -18,7 +18,7 @@ const HomeCropsDetails = ({ home }) => {
         <p className=" text-black line-clamp-1 ">Description : {description}</p>
         <div className="card-actions  text-black ">
           <Link
-            to={`/crops/${_id}`}
+            to={`/post/${_id}`}
             className="py-2 sm:py-3 btn  rounded-3xl btn-outline "
           >
             View All

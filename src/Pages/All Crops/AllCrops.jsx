@@ -5,22 +5,22 @@ import AllCropsDetails from "../All-crops-Details/AllCropsDetails";
 
 export const AllCrops = () => {
   const data = useLoaderData();
-  const [crop, setCrop] = useState(data);
-  const [Loading, setLoading] = useState(false);
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const search_text = e.target.search.value;
+  const [crop] = useState(data);
+  // const [Loading, setLoading] = useState(false);
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   const search_text = e.target.search.value;
 
-    setLoading(true);
+  //   setLoading(true);
 
-    fetch(`https://backend-bay-tau-10.vercel.app/search?search=${search_text}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCrop(data);
-        setLoading(false);
-      });
-  };
+  //   fetch(`https://backend-bay-tau-10.vercel.app/search?search=${search_text}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setCrop(data);
+  //       setLoading(false);
+  //     });
+  // };
 
   return (
     <div className="bg-[#eaeced]">
@@ -31,7 +31,7 @@ export const AllCrops = () => {
         Successful cultivation depends on soil, climate, and proper management
         fertilization, irrigation, and pest control.
       </p>
-      <form
+      {/* <form
         onSubmit={handleSearch}
         className=" mt-5 mb-10 flex gap-2 justify-center"
       >
@@ -57,7 +57,7 @@ export const AllCrops = () => {
         <button className="btn btn-secondary  rounded-full">
           {Loading ? "Searching...." : "Search"}
         </button>
-      </form>
+      </form> */}
       <div className="container grid grid-cols-1 p-4 md:p-5 lg:place-items-center mx-auto w-7xl lg:grid-cols-3">
         {crop.map((crops) => (
           <AllCropsDetails key={crops._id} crops={crops} />

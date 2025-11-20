@@ -8,10 +8,9 @@ import NotFoundPage from "../Pages/Error/NotFoundPage";
 import AddCrops from "../Pages/Add Crops/AddCrops";
 import MyPosts from "../Pages/My Posts/MyPosts";
 import MyInterests from "../Pages/MyInterests/MyInterests";
-import AllCropsDetails from "../Pages/All-crops-Details/AllCropsDetails";
 import AllCrops from "../Pages/All Crops/AllCrops";
-import CropsDetails from "../Pages/CropDetails/CropsDetails";
 import MyProfile from "../Pages/MyProfile/MyProfile";
+import CropDetels from "../Pages/cropsdetels/CropDetels";
 
 export const router = createBrowserRouter([
   {
@@ -27,23 +26,23 @@ export const router = createBrowserRouter([
       {
         path: "/AllCrops",
         element: <AllCrops />,
-        loader: () => fetch("https://backend-bay-tau-10.vercel.app/crops"),
+        loader: () => fetch("https://backend-bay-tau-10.vercel.app/post"),
+      },
+      {
+        path: "/post/:id",
+        element: (
+          <PrivateRoute>
+            <CropDetels></CropDetels>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/post/${params.id}`),
       },
       {
         path: "/profile",
         element: (
           <PrivateRoute>
             <MyProfile></MyProfile>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/crops/:id",
-        loader: ({ params }) =>
-          fetch(`https://backend-bay-tau-10.vercel.app/crops/${params.id}`),
-        element: (
-          <PrivateRoute>
-            <CropsDetails />
           </PrivateRoute>
         ),
       },

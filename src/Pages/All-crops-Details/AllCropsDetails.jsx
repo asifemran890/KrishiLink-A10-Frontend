@@ -25,7 +25,7 @@ const AllCropsDetails = ({ crops }) => {
         <p className="line-clamp-1 text-black">Description: {description}</p>
         <div className="card-actions  ">
           <Link
-            to={`/crops/${_id}`}
+            to={`/post/${_id}`}
             className="btn btn-outline w-full rounded-full text-black border-gray-300 hover:border-pink-500 hover:text-pink-600 "
           >
             View Details
