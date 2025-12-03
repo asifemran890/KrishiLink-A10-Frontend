@@ -25,7 +25,7 @@ const LatestCrops = () => {
       <div className="text-center">
         <h2 className="text-4xl font-bold  mb-3">Latest Crops</h2>
         <div className="flex justify-center mb-3">
-           <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
+          <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
         </div>
         <p className="text-gray-600 mb-10">
           Stay ahead with fresh insights on organic farming, soil health, pest

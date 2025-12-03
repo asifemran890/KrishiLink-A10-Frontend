@@ -52,9 +52,7 @@ const UpdateCrop = ({ crop, onClose, onUpdate }) => {
     <div>
       <div className="fixed inset-0 bg-green-50 bg-opacity-40 flex justify-center items-center z-50">
         <div className="bg-white w-full max-w-lg rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold  text-center mb-4">
-            Update Crop
-          </h2>
+          <h2 className="text-2xl font-bold  text-center mb-4">Update Crop</h2>
           <form onSubmit={handleSubmit} className="space-y-3">
             {/* Crop Name */}
             <div>

@@ -139,11 +139,23 @@ const Footer = () => {
 
       {/* --- Bottom Section --- */}
 
-      <div className="border-t border-gray-300 py-4 text-center text-sm text-gray-600 flex justify-center flex-col lg:flex-row">
+      <div className="border-t border-gray-300 py-4 text-center text-sm text-gray-600 flex  justify-center  flex-col lg:flex-row">
         <div>
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold text-green-700">KrishiLink</span>. All
-          rights reserved.
+          <span className="font-semibold text-black">KrishiLink</span>. All
+          rights reserved.......
+        </div>
+        <div>
+          <p>
+            Develop by -{" "}
+            <a
+              href="https://www.linkedin.com/in/mohyminulislam/"
+              target="blank"
+              className="font-bold text-black"
+            >
+              Asif Emran
+            </a>{" "}
+          </p>
         </div>
       </div>
     </div>

@@ -52,7 +52,7 @@ const NotFound = () => {
           target="blank"
           className="text-black font-bold"
         >
-          Mohyminul Islam
+          Asif Emran
         </a>{" "}
       </motion.p>
     </div>
