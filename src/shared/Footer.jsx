@@ -134,13 +134,9 @@ const Footer = () => {
           </p>
           <form
             onSubmit={handleSubscribe}
-            className="flex items-center justify-center gap-2 p-2 rounded-md bg-green-50"
+            className="flex items-center  gap-2  rounded-md "
           >
-            <input
-              className="focus:ring-2 ring-green-600 outline-none w-full max-w-64 py-2 rounded px-2"
-              type="email"
-              placeholder="Enter your email"
-            />
+            
             <button className="btn-primary">Subscribe</button>
           </form>
         </div>
@@ -148,24 +144,13 @@ const Footer = () => {
 
       {/* --- Bottom Section --- */}
 
-      <div className="border-t border-gray-300 py-4 text-center text-sm text-gray-600 flex justify-between flex-col lg:flex-row">
-        <div>
+      <div className="border-t border-gray-300 py-4 text-center text-sm text-gray-600 flex justify-center flex-col lg:flex-row">
+        <div >
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold text-green-700">KrishiLink</span>. All
           rights reserved.
         </div>
-        <div>
-          <p>
-            Develop by -{" "}
-            <a
-              href="https://www.linkedin.com/in/mohyminulislam/"
-              target="blank"
-              className="font-bold text-green-600"
-            >
-              Mohyminul Islam
-            </a>{" "}
-          </p>
-        </div>
+       
       </div>
     </div>
   );

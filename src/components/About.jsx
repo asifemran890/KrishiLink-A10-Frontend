@@ -19,13 +19,15 @@ const About = () => {
             src="https://research.wpcarey.asu.edu/wp-content/uploads/2015/11/Farmer-vegetables-IDEAS.jpg"
             alt=""
           />
-        
         </div>
         <div className="text-sm text-slate-600 max-w-lg">
           <p>
             <span className="text-green-600 font-bold text-xl">KrishiLink</span>{" "}
-            is a modern web application that connects people in the agricultural
-            sector such as farmers, traders, and consumers in one digital space.
+          </p>
+          <p>
+            That sounds like a description of the KrishiLink application. To
+            learn more about its specific features, availability, or to find a
+            direct link to the platform, I would need to search for it online.
           </p>
 
           <div className="mt-4">

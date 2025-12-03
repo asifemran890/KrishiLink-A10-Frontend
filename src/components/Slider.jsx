@@ -12,11 +12,10 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import slider1 from "../assets/1.jpg";
 import slider2 from "../assets/2.jpg";
 import slider3 from "../assets/3.jpg";
-import slider4 from "../assets/4.jpg";
-
+import slider4 from "../assets/4.webp";
 const Slider = () => {
   return (
-    <div className="lg:h-[75vh] md:h-[60vh] h-[40vh]">
+    <div className="lg:h-[75vh] w-11/12 mx-auto  rounded-3xl md:h-[60vh] h-[40vh]">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         spaceBetween={0}
@@ -34,16 +33,16 @@ const Slider = () => {
         className="hero-swiper"
       >
         <SwiperSlide>
-          <img src={slider1} alt="Slider 1" />
+          <img className="rounded-3xl" src={slider1} alt="Slider 1" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slider2} alt="Slider 2" />
+          <img className="rounded-3xl" src={slider2} alt="Slider 2" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slider3} alt="Slider 3" />
+          <img className="rounded-3xl" src={slider3} alt="Slider 3" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slider4} alt="Slider 3" />
+          <img className="rounded-3xl" src={slider4} alt="Slider 3" />
         </SwiperSlide>
       </Swiper>
     </div>
