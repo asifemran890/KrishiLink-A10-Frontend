@@ -5,11 +5,11 @@ const About = () => {
   return (
     <div className="w-11/12 mx-auto my-14 ">
       <div className="text-center">
-        <h2 className="text-4xl font-bold   text-green-700 mb-3">
+        <h2 className="text-4xl font-bold   mb-3">
           About KrishiLink
         </h2>
         <div className="flex justify-center mb-3">
-          <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-green-600 to-green-400"></div>
+          <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
         </div>
       </div>
       <div className="grid lg:grid-cols-2 grid-cols-1 items-center justify-center gap-10 max-md:px-4 mt-14">

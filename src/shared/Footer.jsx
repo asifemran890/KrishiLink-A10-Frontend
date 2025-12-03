@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../assets/logo.png";
 import { toast } from "react-toastify";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const handleSubscribe = (e) => {
@@ -47,7 +43,7 @@ const Footer = () => {
               rel="noreferrer"
               className="hover:text-green-600"
             >
-              <FaTwitter />
+              <FaXTwitter />
             </a>
             <a
               href="https://instagram.com"
@@ -136,7 +132,6 @@ const Footer = () => {
             onSubmit={handleSubscribe}
             className="flex items-center  gap-2  rounded-md "
           >
-            
             <button className="btn-primary">Subscribe</button>
           </form>
         </div>
@@ -145,12 +140,11 @@ const Footer = () => {
       {/* --- Bottom Section --- */}
 
       <div className="border-t border-gray-300 py-4 text-center text-sm text-gray-600 flex justify-center flex-col lg:flex-row">
-        <div >
+        <div>
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold text-green-700">KrishiLink</span>. All
           rights reserved.
         </div>
-       
       </div>
     </div>
   );

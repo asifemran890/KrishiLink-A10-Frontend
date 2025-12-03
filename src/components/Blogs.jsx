@@ -24,9 +24,9 @@ const Blogs = () => {
   return (
     <section className="bg-white py-12 px-6 md:px-20">
       <div className="text-center">
-        <h2 className="text-4xl font-bold   text-green-700 mb-3">Agro News</h2>
+        <h2 className="text-4xl font-bold   ">Agro News</h2>
         <div className="flex justify-center mb-3">
-          <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-green-600 to-green-400"></div>
+         <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
         </div>
         <p className="  text-gray-600 mb-10">
           Stay ahead with fresh insights on organic farming, soil health, pest
@@ -50,9 +50,7 @@ const Blogs = () => {
                   {post.category}
                 </span>
               </div>
-              <h3 className="text-xl font-semibold text-black mb-4">
-                {post.title}
-              </h3>
+              
 
               <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-green-700 transition cursor-pointer">
                 See Details

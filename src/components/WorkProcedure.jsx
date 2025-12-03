@@ -29,9 +29,13 @@ const WorkProcedure = () => {
   ];
   return (
     <section className="bg-white py-12 px-6 md:px-20">
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-10">
-        How Organic Farming Works
-      </h2>
+      <div className="text-center">
+        <h2 className="text-4xl font-bold   mb-3">How Organic Farming Works</h2>
+        <div className="flex justify-center mb-6">
+          <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {steps.map((step, index) => (
           <div

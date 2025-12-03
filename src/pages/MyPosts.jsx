@@ -58,6 +58,7 @@ const MyPosts = () => {
 
   return (
     <div className="w-11/12 mx-auto py-8">
+      <title>KrishiLink - Mypost </title>
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
         My Crops
       </h2>

@@ -40,10 +40,10 @@ const LatestCrop = ({ crops }) => {
                 <FaLocationDot  className="text-green-500 font-bold"/>  {crop.address}
               </p>
 
-              <div className="pb-3 pt-1 w-full">
+              <div className="pb-3 pt-1 w-full flex justify-center">
                 <Link
                   to={`/crop-details/${crop._id}`}
-                  className="bg-blue-500 text-white px-4 py-2.5 rounded hover:bg-green-700 transition cursor-pointer w-full"
+                  className="bg-blue-500 text-white text-center px-4 py-2.5 rounded hover:bg-green-700 transition cursor-pointer w-full"
                 >
                   See Details
                 </Link>

@@ -40,8 +40,9 @@ const AllCrops = () => {
 
   return (
     <div className="w-11/12 mx-auto">
+      <title>KrishiLink - AllCrops </title>
       <div className="text-center mt-10 mb-20">
-        <h2 className="text-4xl font-bold text-green-700 mb-3">All Crops</h2>
+        <h2 className="text-4xl font-bold  mb-3">All Crops</h2>
         <p className="text-gray-600 mb-10">
           All crops are Original, Organic, Authentic. Choose according to your
           needs.
@@ -50,7 +51,7 @@ const AllCrops = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
         <div className="col-span-2">
-          <h1 className="font-bold text-green-600 text-xl">
+          <h1 className="font-bold  text-xl">
             ({finalCrops.length}) Available
           </h1>
         </div>

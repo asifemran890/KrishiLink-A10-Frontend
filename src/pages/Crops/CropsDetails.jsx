@@ -95,6 +95,7 @@ const CropDetails = () => {
 
   return (
     <div className="w-8/12 mx-auto grid grid-cols-1 py-8 gap-7">
+      <title>KrishiLink - CropsDetails </title>
       <div>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-9">
           <div>
@@ -120,7 +121,6 @@ const CropDetails = () => {
             </p>
 
             <p className="text-medium font-medium text-gray-500 my-3 flex items-center gap-2 ">
-              
               Address : {crop.address}
             </p>
             <p className="text-gray-600 mt-5 flex gap-2">
@@ -129,7 +129,6 @@ const CropDetails = () => {
             </p>
             <div className="text-gray-600 mb-1 flex gap-3 items-center">
               <div className="flex gap-2">
-           
                 <p className="font-semibold text-lg">{crop.owner.ownerName}</p>
               </div>
               <div>

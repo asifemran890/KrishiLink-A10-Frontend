@@ -28,6 +28,7 @@ const MyInterests = () => {
 
   return (
     <div className="w-11/12 mx-auto">
+      <title>KrishiLink - MyInterests </title>
       <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm mt-6">
         <table className="min-w-full text-sm sm:text-base">
           <thead className="bg-green-500 text-white">
