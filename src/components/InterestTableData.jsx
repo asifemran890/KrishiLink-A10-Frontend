@@ -8,7 +8,7 @@ const InterestTableData = ({ interests, setInterests }) => {
     setUpdatingId(id);
     try {
       const res = await fetch(
-        `https://krishilink-server-ivory.vercel.app/interests/${id}`,
+        `${import.meta.env.VITE_SERVER_URL}/interests/${id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },

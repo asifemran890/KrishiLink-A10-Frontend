@@ -1,11 +1,9 @@
 import { useParams } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { BiSolidUserDetail } from "react-icons/bi";
 import Swal from "sweetalert2";
 import Loading from "../../loading/Loading";
 import InterestTableData from "../../components/InterestTableData";
-import { FaLocationDot } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 const CropDetails = () => {
@@ -20,7 +18,7 @@ const CropDetails = () => {
 
   // Load crop details
   useEffect(() => {
-    fetch(`https://krishilink-server-ivory.vercel.app/products/${id}`)
+    fetch(`${import.meta.env.VITE_SERVER_URL}/products/${id}`)
       .then((res) => res.json())
       .then((data) => setCrop(data))
       .catch((err) => console.error(err));
@@ -28,9 +26,7 @@ const CropDetails = () => {
 
   // Load interests of this crop
   useEffect(() => {
-    fetch(
-      `https://krishilink-server-ivory.vercel.app/all-interests/${crop?._id}`
-    )
+    fetch(`${import.meta.env.VITE_SERVER_URL}/all-interests/${crop?._id}`)
       .then((res) => res.json())
       .then((data) => {
         // const filtered = data.filter((item) => item.cropId?.toString() === id);
@@ -50,7 +46,7 @@ const CropDetails = () => {
 
     try {
       const response = await fetch(
-        "https://krishilink-server-ivory.vercel.app/interests",
+        `${import.meta.env.VITE_SERVER_URL}/interests`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

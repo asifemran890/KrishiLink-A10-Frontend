@@ -13,9 +13,7 @@ const MyPosts = () => {
   const [selectedCrop, setSelectedCrop] = useState(null);
 
   useEffect(() => {
-    fetch(
-      `https://krishilink-server-ivory.vercel.app/products?email=${user?.email}`
-    )
+    fetch(`${import.meta.env.VITE_SERVER_URL}/products?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -42,7 +40,7 @@ const MyPosts = () => {
 
     if (confirmDelete.isConfirmed) {
       const res = await fetch(
-        `https://krishilink-server-ivory.vercel.app/products/${_id}`,
+        `${import.meta.env.VITE_SERVER_URL}/products/${_id}`,
         {
           method: "DELETE",
         }

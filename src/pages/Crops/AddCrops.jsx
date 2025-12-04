@@ -35,7 +35,7 @@ const AddCrop = () => {
     console.log(newProduct);
 
     // post data into server
-    fetch("https://krishilink-server-ivory.vercel.app/products", {
+    fetch(`${import.meta.env.VITE_SERVER_URL}/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

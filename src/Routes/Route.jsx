@@ -84,9 +84,7 @@ const router = createBrowserRouter([
       {
         path: "/crop-details/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://krishilink-server-ivory.vercel.app/products/${params.id}`
-          ),
+          fetch(`${import.meta.env.VITE_SERVER_URL}/products/${params.id}`),
         element: (
           <PrivateRoute>
             <CropDetails></CropDetails>

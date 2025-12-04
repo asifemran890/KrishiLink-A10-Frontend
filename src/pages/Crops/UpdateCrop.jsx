@@ -22,7 +22,7 @@ const UpdateCrop = ({ crop, onClose, onUpdate }) => {
     e.preventDefault();
 
     const res = await fetch(
-      `https://krishilink-server-ivory.vercel.app/products/${crop._id}`,
+      `${import.meta.env.VITE_SERVER_URL}/products/${crop._id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

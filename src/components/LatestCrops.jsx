@@ -8,7 +8,7 @@ const LatestCrops = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://krishilink-server-ivory.vercel.app/latest-products")
+    fetch(`${import.meta.env.VITE_SERVER_URL}/latest-products`)
       .then((res) => res.json())
       .then((data) => {
         setCrops(data);
