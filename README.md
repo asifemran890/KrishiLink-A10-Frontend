@@ -1,6 +1,8 @@
 # 🌾 KrishiLink – Farmers’ Growth & Connection Platform
 
-## 📘 Overview  
+## 📘 Overview
+
+KrishiLink live link : https://bejewelled-kheer-9250bb.netlify.app/
 **KrishiLink** is a React-based client-side web application designed to connect farmers, share knowledge, and provide access to agricultural resources.  
 It helps farmers collaborate, learn modern techniques, and stay updated with agricultural innovations.
 
