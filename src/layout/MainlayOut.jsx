@@ -9,7 +9,7 @@ const MainlayOut = () => {
       <header className="sticky top-0 z-50">
         <Header />
       </header>
-      <section>
+      <section className=" min-h-[calc(100vh-68px)]">
         <Outlet></Outlet>
       </section>
       <footer className="bg-cyan-200">
