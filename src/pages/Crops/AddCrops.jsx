@@ -171,7 +171,7 @@ const AddCrop = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full  bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition cursor-pointer"
+          className="w-full  btn-primary text-white py-2 rounded-lg font-semibold  transition cursor-pointer"
         >
           Add Crop
         </button>

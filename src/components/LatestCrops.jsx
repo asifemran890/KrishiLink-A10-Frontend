@@ -39,7 +39,7 @@ const LatestCrops = () => {
       <div className="text-center my-10">
         <Link
           to={"/all-crops"}
-          className="bg-blue-500 text-white px-4 py-2.5 rounded hover:bg-green-700 transition cursor-pointer w-full"
+          className="btn-primary text-white px-4 py-2.5 rounded hover:bg-green-700 transition cursor-pointer w-full"
         >
           View All
         </Link>

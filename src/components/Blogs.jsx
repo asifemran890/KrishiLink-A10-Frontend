@@ -24,7 +24,7 @@ const Blogs = () => {
   return (
     <section className="bg-white py-12 px-6 md:px-20">
       <div className="text-center">
-        <h2 className="text-4xl font-bold   ">Agro News</h2>
+        <h2 className="text-4xl font-bold  mb-2 ">Agro News</h2>
         <div className="flex justify-center mb-3">
          <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
         </div>
@@ -52,7 +52,7 @@ const Blogs = () => {
               </div>
               
 
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-green-700 transition cursor-pointer">
+              <button className="btn-primary text-white px-4 py-2 rounded hover:bg-green-700 transition cursor-pointer">
                 See Details
               </button>
             </div>

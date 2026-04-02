@@ -75,7 +75,7 @@ const AllCrops = () => {
           />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-green-700 transition w-32 h-9 rounded-full text-sm text-white mr-[5px] cursor-pointer"
+            className="bg-green-500 hover:bg-green-300 transition w-32 h-9 rounded-full text-sm  mr-[5px] cursor-pointer"
           >
             Search
           </button>

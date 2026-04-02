@@ -97,7 +97,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full mb-3 bg-blue-600  hover:bg-green-500 py-2.5 rounded-full text-white cursor-pointer"
+          className="w-full mb-3 btn-primary py-2.5 rounded-full text-white cursor-pointer"
         >
           Log in
         </button>
@@ -117,7 +117,7 @@ const Login = () => {
       {/* Google login*/}
       <button
         onClick={handleSinginGoogle}
-        className="btn bg-white text-black hover:bg-green-600 border-[#e5e5e5] w-full"
+        className="btn bg-white text-black hover:bg-green-300 border-[#e5e5e5] w-full"
       >
         <svg
           aria-label="Google logo"

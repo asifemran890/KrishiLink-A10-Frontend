@@ -169,13 +169,13 @@ const Header = () => {
             <div className="space-x-2">
               <Link
                 to="/login"
-                className="bg-green-600 text-white px-4 py-2 rounded font-semibold"
+                className="border border-green-600 text-green-600 btn-primary rounded font-semibold"
               >
                 Login
               </Link>
               <Link
                 to="/registration"
-                className="border border-green-600 text-green-600 px-4 py-2 rounded font-semibold"
+                className="border border-green-600 text-green-600 btn-primary rounded font-semibold"
               >
                 Register
               </Link>

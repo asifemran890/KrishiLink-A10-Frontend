@@ -205,7 +205,7 @@ const CropDetails = () => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-500 text-white px-5 py-2 mt-3 rounded-lg hover:bg-green-700 w-full disabled:bg-gray-400"
+              className="btn-primary text-white px-5 py-2 mt-3 rounded-lg  w-full disabled:bg-gray-400"
             >
               {loading ? "Submitting..." : "Submit Interest"}
             </button>

@@ -5,9 +5,7 @@ const About = () => {
   return (
     <div className="w-11/12 mx-auto my-14 ">
       <div className="text-center">
-        <h2 className="text-4xl font-bold   mb-3">
-          About KrishiLink
-        </h2>
+        <h2 className="text-4xl font-bold   mb-3">About KrishiLink</h2>
         <div className="flex justify-center mb-3">
           <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-black to-black"></div>
         </div>
@@ -22,7 +20,9 @@ const About = () => {
         </div>
         <div className="text-sm text-slate-600 max-w-lg">
           <p>
-            <span className="text-green-600 font-bold text-xl">KrishiLink</span>{" "}
+            <span className="text-green-600 font-bold text-xl">
+              KrishiLink
+            </span>{" "}
           </p>
           <p>
             That sounds like a description of the KrishiLink application. To

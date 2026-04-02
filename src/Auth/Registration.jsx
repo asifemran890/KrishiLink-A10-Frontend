@@ -88,7 +88,7 @@ const Registration = () => {
     <div className="hero min-h-screen py-[60px] rounded-3xl">
       <title>KrishiLink | Register Now</title>
       <div className="card w-[90%] lg:w-[25%] md:w-[60%] bg-base-100 shrink-0 shadow-2xl">
-        <div className="card-body">
+        <div className="card-body rounded-xl">
           <h1 className="text-3xl font-semibold text-center mb-5">Register</h1>
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
@@ -152,7 +152,7 @@ const Registration = () => {
                 <input type="checkbox" name="terms" />
                 <span className="ml-2 text-sm">Accept Terms & Conditions</span>
               </label>
-              <button className="btn bg-blue-600 hover:bg-green-600 mt-2">
+              <button className="btn-primary hover:bg-green-600 mt-2">
                 Submit
               </button>
               {error && <p className="text-red-500">{error}</p>}
@@ -167,7 +167,7 @@ const Registration = () => {
             {/* Google */}
             <button
               onClick={handleSinginGoogle}
-              className="btn bg-white text-black hover:bg-green-600 border-[#e5e5e5]"
+              className="btn bg-white text-black hover:bg-green-300 border-[#e5e5e5]"
             >
               <svg
                 aria-label="Google logo"
