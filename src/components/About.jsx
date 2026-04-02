@@ -45,6 +45,15 @@ const About = () => {
             platform works as a social agro network, where everyone can interact
             directly.
           </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+            reprehenderit quo, ut voluptates vero id saepe quidem aliquam
+            cupiditate blanditiis ducimus minus tempore, eum accusamus atque sit
+            inventore minima? Sunt? Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Ratione nemo neque adipisci inventore, ipsum porro
+            necessitatibus sed incidunt doloribus ab dignissimos? Nihil minima
+            similique voluptatibus ea nisi dicta perspiciatis repellendus.
+          </p>
           <button className="bg-blue-600 text-white px-4 py-2 mt-4 rounded-full hover:bg-green-700 transition cursor-pointer">
             Read More
           </button>
