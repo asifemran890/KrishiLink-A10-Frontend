@@ -1,5 +1,20 @@
 import { div } from "motion/react-client";
 import React from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "../index.css";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import slider1 from "../assets/1.jpg";
+import slider2 from "../assets/2.jpg";
+import slider3 from "../assets/3.jpg";
+import slider4 from "../assets/4.webp";
 
 const About = () => {
   return (
@@ -12,11 +27,35 @@ const About = () => {
       </div>
       <div className="grid lg:grid-cols-2 grid-cols-1 items-center justify-center gap-10 max-md:px-4 mt-14">
         <div className="relative shadow-2xl shadow-green-600/40 rounded-2xl overflow-hidden shrink-0">
-          <img
-            className=" w-full object-cover rounded-2xl"
-            src="https://research.wpcarey.asu.edu/wp-content/uploads/2015/11/Farmer-vegetables-IDEAS.jpg"
-            alt=""
-          />
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation]}
+            spaceBetween={0}
+            slidesPerView={1}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            navigation={true}
+            loop={true}
+            className="hero-swiper"
+          >
+            <SwiperSlide>
+              <img className="rounded-3xl" src={slider1} alt="Slider 1" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="rounded-3xl" src={slider2} alt="Slider 2" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="rounded-3xl" src={slider3} alt="Slider 3" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="rounded-3xl" src={slider4} alt="Slider 3" />
+            </SwiperSlide>
+          </Swiper>
         </div>
         <div className="text-sm text-slate-600 max-w-lg">
           <p>
