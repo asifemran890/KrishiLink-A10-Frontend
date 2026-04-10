@@ -11,10 +11,10 @@ import "../index.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import slider1 from "../assets/1.jpg";
-import slider2 from "../assets/2.jpg";
-import slider3 from "../assets/3.jpg";
-import slider4 from "../assets/4.webp";
+import slider1 from "../assets/a-smiling-man-holding-a-box-of-vegetables-in-a-field-free-photo.jpg";
+import slider2 from "../assets/Farmer-1.jpg";
+import slider3 from "../assets/Photo-Credit-IFPRI_1.jpg";
+import slider4 from "../assets/young-indian-agronomist-showing-some-information-farmer-tablet-agriculture-field_54391-5678.avif";
 
 const About = () => {
   return (
@@ -39,21 +39,19 @@ const About = () => {
               clickable: true,
               dynamicBullets: true,
             }}
-            navigation={true}
-            loop={true}
-            className="hero-swiper"
+            
           >
             <SwiperSlide>
-              <img className="rounded-3xl" src={slider1} alt="Slider 1" />
+              <img className="rounded-3xl w-full" src={slider1} alt="Slider 1" />
             </SwiperSlide>
             <SwiperSlide>
-              <img className="rounded-3xl" src={slider2} alt="Slider 2" />
+              <img className="rounded-3xl w-full" src={slider2} alt="Slider 2" />
             </SwiperSlide>
             <SwiperSlide>
-              <img className="rounded-3xl" src={slider3} alt="Slider 3" />
+              <img className="rounded-3xl w-full" src={slider3} alt="Slider 3" />
             </SwiperSlide>
             <SwiperSlide>
-              <img className="rounded-3xl" src={slider4} alt="Slider 3" />
+              <img className="rounded-3xl w-full" src={slider4} alt="Slider 3" />
             </SwiperSlide>
           </Swiper>
         </div>
