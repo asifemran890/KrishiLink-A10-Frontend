@@ -23,6 +23,35 @@ const MyInterests = () => {
   if (loading) {
     return <Loading></Loading>;
   }
+  
+  const handleOrder = async (crop) => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/create-order-payment`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cropId: crop._id,
+            cropTitle: crop.cropTitle,
+            buyerEmail: user.email,
+            sellerEmail: crop.email,
+            quantity: crop.quantity,
+            amount: crop.quantity * 10, // your pricing logic
+          }),
+        },
+      );
+
+      const data = await res.json();
+
+      // 🚀 redirect to payment gateway
+      window.location.href = data.paymentUrl;
+    } catch (err) {
+      console.error("Order + Payment error:", err);
+    }
+  };
 
   return (
     <div className="w-11/12 mx-auto">
@@ -38,6 +67,7 @@ const MyInterests = () => {
               <th className="px-3 sm:px-5 py-3 text-start">Message</th>
               <th className="px-3 sm:px-5 py-3 text-start">Status</th>
               <th className="px-3 sm:px-5 py-3 text-center">Submitted On</th>
+              <th className="px-3 sm:px-5 py-3 text-center">Crop Order </th>
             </tr>
           </thead>
 
@@ -62,8 +92,8 @@ const MyInterests = () => {
                       crop.status === "pending"
                         ? "text-yellow-600"
                         : crop.status === "accepted"
-                        ? "text-green-600"
-                        : "text-red-600"
+                          ? "text-green-600"
+                          : "text-red-600"
                     }`}
                   >
                     {crop.status}
@@ -71,6 +101,12 @@ const MyInterests = () => {
                   <td className="px-3 sm:px-4 py-2 text-gray-500">
                     {new Date(crop.createdAt).toLocaleDateString()}
                   </td>
+                  <button
+                    onClick={() => handleOrder(crop)}
+                    className="bg-blue-400 hover:bg-green-300 transition w-32 h-8 mt-1 rounded-full text-sm "
+                  >
+                    Order Now
+                  </button>
                 </tr>
               ))
             ) : (

@@ -18,9 +18,9 @@ const Footer = () => {
         <div>
           <Link to="/" className="flex items-center gap-2 mb-3">
             <img src={Logo} alt="KrishiLink Logo" className="w-10" />
-            <span className="text-2xl font-bold text-green-700">
-              KrishiLink
-            </span>
+             <h1 className="text-2xl font-bold text-red-400">
+              Krishi<span className="text-indigo-500">Link</span>
+            </h1>
           </Link>
           <p className="text-sm text-gray-600">
             Connecting farmers and buyers across Bangladesh — grow, trade, and
